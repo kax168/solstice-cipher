@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Solstice Cipher</title>
+    <meta
+      name="description"
+      content="A tiny June Solstice Game Jam puzzle about balancing light and shadow while decoding a Turing-inspired cipher."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">June Solstice Game Jam</p>
+        <h1>Solstice Cipher</h1>
+        <p class="lede">
+          Balance the longest day and the shortest night. Collect four cipher
+          sparks, avoid the shadow drift, and open the solstice gate.
+        </p>
+        <div class="actions">
+          <button id="startBtn">Start / Restart</button>
+          <button id="muteBtn" aria-pressed="false">Sound: on</button>
+        </div>
+      </section>
+
+      <section class="game-card" aria-label="Solstice Cipher game">
+        <canvas id="game" width="960" height="640"></canvas>
+        <aside class="panel">
+          <h2>Mission</h2>
+          <p>
+            Move with <kbd>WASD</kbd> or arrow keys. Keep the light meter in the
+            golden band, collect cipher sparks, then reach the gate.
+          </p>
+          <dl>
+            <dt>Light balance</dt>
+            <dd><span id="balance">50</span>%</dd>
+            <dt>Cipher</dt>
+            <dd><span id="cipher">0</span>/4</dd>
+            <dt>Time</dt>
+            <dd><span id="timer">90</span>s</dd>
+          </dl>
+          <p id="status" class="status">Press Start to begin.</p>
+        </aside>
+      </section>
+
+      <section class="notes">
+        <h2>Theme</h2>
+        <p>
+          The solstice is a turning point: half the world leans into light while
+          the other half leans into dark. This game turns that into a mechanic:
+          too much light or too much shadow destabilizes the route.
+        </p>
+        <p>
+          The cipher sparks are a small ode to Alan Turing: the gate only opens
+          when you collect enough signal from the maze to decode the final path.
+        </p>
+      </section>
+    </main>
+    <script type="module" src="src/game.js"></script>
+  </body>
+</html>
