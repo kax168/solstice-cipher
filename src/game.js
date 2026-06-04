@@ -15,9 +15,9 @@ let audioCtx;
 let state;
 let lastTick = performance.now();
 
-function reset() {
+function createState(running = false) {
   const parsed = parseLevel();
-  state = {
+  return {
     player: { x: parsed.player.x * TILE + TILE / 2, y: parsed.player.y * TILE + TILE / 2 },
     gate: parsed.gate,
     sparks: parsed.sparks.map((spark) => ({ ...spark, collected: false })),
@@ -25,11 +25,20 @@ function reset() {
     balance: levelMeta.startBalance,
     cipher: 0,
     time: levelMeta.seconds,
-    running: true,
+    running,
     won: false,
   };
+}
+
+function reset() {
+  state = createState(true);
   statusEl.textContent = "Find four cipher sparks, then reach the gate.";
   lastTick = performance.now();
+}
+
+function setupPreview() {
+  state = createState(false);
+  statusEl.textContent = "Press Start to begin.";
 }
 
 function beep(freq = 440, duration = 0.08) {
@@ -211,5 +220,5 @@ muteBtn.addEventListener("click", () => {
   muteBtn.setAttribute("aria-pressed", String(muted));
 });
 
-reset();
+setupPreview();
 requestAnimationFrame(loop);
