@@ -24,6 +24,10 @@ The goal was to make something compact but actually playable, not just a themed 
 
 ## Demo
 
+Quick demo:
+
+![Solstice Cipher gameplay demo](https://raw.githubusercontent.com/kax168/solstice-cipher/main/assets/demo.gif?v=1)
+
 Play it here:
 
 https://kax168.github.io/solstice-cipher/
